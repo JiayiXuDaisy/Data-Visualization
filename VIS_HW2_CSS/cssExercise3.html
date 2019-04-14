@@ -1,0 +1,90 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <title>Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 外部样式 -->
+    <link rel="stylesheet" type="text/css" media="screen" href="myStyle3.css"> 
+    <script src="main.js"></script>
+    <!-- 内部样式 -->
+    <!-- <style>
+            #left {
+                width:70%;
+                height:100%;
+                float:left;
+                /* center the button */
+                text-align:center;
+                /* set the border width */
+                border:2px solid;
+                /* set the border inside the element */
+                box-sizing: border-box;
+                /* set rounded corners */
+                border-radius:5px;
+                /* set border color */
+                border-color:lightgray;
+                /* set box's background color */
+                background-color: cornsilk;
+            }
+
+            #right {
+                width:30%;
+                height:100%;
+                float:left;
+                /* set the border width */
+                border:2px solid;
+                /* set the border inside the element */
+                box-sizing: border-box;
+                /* set rounded corners */
+                border-radius:5px;
+                /* set border color */
+                border-color:lightgray;
+                /* set box's background color */
+                background-color:indianred;
+            }
+
+            #bottom {
+                width:100%;
+                height:100px;
+                float: left;
+                /* set the border width */
+                border:2px solid;
+                /* set the border inside the element */
+                box-sizing: border-box;
+                /* set rounded corners */
+                border-radius:5px;
+                /* set border color */
+                border-color:lightgray;
+                /* set box's background color */
+                background-color:sandybrown;
+            }
+            </style> -->
+</head>
+
+
+
+<body>
+                
+        <div id="left">
+                <button id="changeColorBtn">Change Background Color</button>
+        </div>
+
+        <div id="right"> </div>
+                
+        <div id="bottom"> </div>
+        
+        <script>
+            var n = 0;
+            var changeColorBtn = document.getElementById('changeColorBtn');
+            changeColorBtn.onclick = function(){
+                n = n + 1;
+                if(n % 2 == 1 )
+                    left.style.background = "pink";
+                else left.style.background = "cornsilk";         
+            }
+        </script>
+                
+    
+</body>
+</html>
