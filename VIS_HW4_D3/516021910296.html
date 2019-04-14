@@ -1,0 +1,217 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>D3 Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> 
+</head>
+<body>
+    <script>
+        //在 body 里添加一个 SVG 画布   
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 600)
+            .attr("height", 800);
+
+        //画布周边的空白
+        var padding = {left:30, right:30, top:20, bottom:20};
+        //定义一个数组
+        var dataset = [];
+        for(i = 0; i<20 ;i ++)
+            dataset[i] = Math.random()*10;
+
+        //矩形之间的空白
+        var rectPadding = 2; 
+
+        //添加矩形元素
+        var rects = svg.selectAll(".MyRect")
+                .data(dataset)
+                .enter()
+                .append("rect")
+                .attr("class","MyRect")
+                .attr("transform","translate(" + padding.left + "," + padding.top + ")")
+                .attr("x", function(d,i){
+                    return (i-1)*30 + rectPadding / 2;
+                } )
+                .attr("y",function(d){
+                    return 300 - d*10;
+                })
+                .attr("width", 30 - rectPadding )
+                .attr("height", function(d){
+                    return d*10;
+                })
+                .attr("fill","steelblue")
+                .on("mouseover",function(d,i){
+                    d3.select(this)
+                        .attr("fill","yellow");
+                })
+                .on("mouseout",function(d,i){
+                    d3.select(this)
+                        .transition()
+                        .duration(500)
+                        .attr("fill","steelblue");
+                });
+
+        var circlePlus = svg.append("circle")
+            .attr("class","circlePlus")
+            .attr("cx",25)
+            .attr("cy",25)
+            .attr("r", 25)
+            .style("fill", "Cornsilk")
+            .on("mouseover",function(){
+                d3.select(this)
+                  .style("fill","Coral");
+            })
+            .on("mouseout",function(){
+                    d3.select(this)
+                        .transition()
+                        .duration(500)
+                        .style("fill","Cornsilk");
+            });
+        
+        //末尾增加
+        circlePlus.on("click", function(){
+            var new_data = Math.random()*10;
+            dataset.push(new_data);
+            dataset.shift();
+            svg.selectAll(".MyRect")
+                .data(dataset)
+                .attr("y",function(d){
+                        return 300 - d*10;
+                })
+                .attr("height", function(d){
+                    return d*10;
+                });
+        })
+
+        //末尾减少
+        var circleMinus = svg.append("circle")
+            .attr("class","circleMinus")
+            .attr("cx",100)
+            .attr("cy",25)
+            .attr("r", 25)
+            .style("fill", "Cornsilk")
+            .on("mouseover",function(){
+                d3.select(this)
+                  .style("fill","Coral")
+            })
+            .on("mouseout",function(){
+                    d3.select(this)
+                        .transition()
+                        .duration(500)
+                        .style("fill","Cornsilk");
+            });
+
+        circleMinus.on("click", function(){
+            var new_data = Math.random()*10;
+            dataset.unshift(new_data);
+            dataset.pop();
+            svg.selectAll(".MyRect")
+                .data(dataset)
+                .attr("y",function(d){
+                        return 300 - d*10;
+                })
+                .attr("height", function(d){
+                    return d*10;
+                });
+        })
+        
+        //刷新
+        var circleRefresh = svg.append("circle")
+            .attr("class","circleRefresh")
+            .attr("cx",175)
+            .attr("cy",25)
+            .attr("r", 25)
+            .style("fill", "Cornsilk")
+            .on("mouseover",function(){
+                d3.select(this)
+                  .style("fill","Coral");
+            })
+            .on("mouseout",function(){
+                    d3.select(this)
+                        .transition()
+                        .duration(500)
+                        .style("fill","Cornsilk");
+            });
+        
+        circleRefresh.on("click", function(){
+            for(i = 0; i<20 ;i ++)
+                dataset[i] = Math.random()*10;
+            svg.selectAll(".MyRect")
+                .data(dataset)
+                .attr("y",function(d){
+                        return 300 - d*10;
+                })
+                .attr("height", function(d){
+                    return d*10;
+                });
+        })
+
+        //为circle按钮添加文字/图片标识
+        var textPlus = svg.append("text").text("+").attr('fill','black')
+            .attr('x',25)
+            .attr('y',25)
+            .attr('text-anchor','middle')
+            .style('font-size','20px')
+            .attr('dy',8);
+        
+        var textMinus = svg.append("text").text("-").attr('fill','black')
+            .attr('x',100)
+            .attr('y',25)
+            .attr('text-anchor','middle')
+            .style('font-size','25px')
+            .attr('dy',8);
+
+        var textRefresh = svg.append("image")
+            .attr('x',165)
+            .attr('y',16)
+            .attr('height','20')
+            .attr('width',"20")
+            .attr("xlink:href","./fresh.png");
+        
+        //text 元素被点击之后的效果（防止干扰circle）
+        textPlus.on("click", function(){
+            var new_data = Math.random()*10;
+            dataset.push(new_data);
+            dataset.shift();
+            svg.selectAll(".MyRect")
+                .data(dataset)
+                .attr("y",function(d){
+                        return 300 - d*10;
+                })
+                .attr("height", function(d){
+                    return d*10;
+                });
+        })
+
+        textMinus.on("click", function(){
+            var new_data = Math.random()*10;
+            dataset.unshift(new_data);
+            dataset.pop();
+            svg.selectAll(".MyRect")
+                .data(dataset)
+                .attr("y",function(d){
+                        return 300 - d*10;
+                })
+                .attr("height", function(d){
+                    return d*10;
+                });
+        })
+
+        textRefresh.on("click", function(){
+            for(i = 0; i<20 ;i ++)
+                dataset[i] = Math.random()*10;
+            svg.selectAll(".MyRect")
+                .data(dataset)
+                .attr("y",function(d){
+                        return 300 - d*10;
+                })
+                .attr("height", function(d){
+                    return d*10;
+                });
+        })
+    </script>
+</body>
+</html>
