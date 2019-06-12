@@ -1,0 +1,49 @@
+#map {
+    width:40%;
+    height:60%;
+    float:left;
+    /* center the button */
+    text-align:center;
+    /* set the border width */
+    border:2px solid;
+    /* set the border inside the element */
+    box-sizing: border-box;
+    /* set rounded corners */
+    border-radius:5px;
+    /* set border color */
+    border-color:lightgray;
+    /* set box's background color */
+    background-color: cornsilk;
+}
+
+#tab {
+    width:40%;
+    height:80%;
+    float:left;
+    /* set the border width */
+    border:2px solid;
+    /* set the border inside the element */
+    box-sizing: border-box;
+    /* set rounded corners */
+    border-radius:5px;
+    /* set border color */
+    border-color:lightgray;
+    /* set box's background color */
+    background-color:indianred;
+}
+
+#line {
+    width:60%;
+    height:20%;
+    float: left;
+    /* set the border width */
+    border:2px solid;
+    /* set the border inside the element */
+    box-sizing: border-box;
+    /* set rounded corners */
+    border-radius:5px;
+    /* set border color */
+    border-color:lightgray;
+    /* set box's background color */
+    background-color:sandybrown;
+}

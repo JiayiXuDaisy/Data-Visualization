@@ -1,0 +1,86 @@
+#map{
+    float:left;
+    border:3px solid;
+    /* set the border inside the element */
+    box-sizing: border-box;
+    /* set rounded corners */
+    /* border-radius:20px; */
+    /* set border color */
+    border-color:white;
+    background: rgb(238, 235, 206);
+    width: 600px;
+    height:400px;
+
+}
+#timeline{
+    float:left;
+    overflow: auto;
+    width: 950px;
+    height:330px;
+    border:3px solid;
+    box-sizing: border-box;
+    /* set rounded corners */
+    /* border-radius:20px; */
+    /* set border color */
+    border-color:white;
+    background: lightgray;
+}
+#bar{
+    float:left;
+    width: 450px;
+    height:400px;
+    border:3px solid;
+    box-sizing: border-box;
+    /* set rounded corners */
+    /* border-radius:20px; */
+    /* set border color */
+    border-color:white;
+    background: rgb(196, 212, 195);
+
+}
+#link{
+    float:left;
+    width: 450px;
+    height:400px;
+    border:3px solid;
+    box-sizing: border-box;
+    /* set rounded corners */
+    /* border-radius:20px; */
+    /* set border color */
+    background: rgb(240, 219, 200);
+    border-color:white;
+}
+#wordcloud{
+    float:left;
+    border-left: 150px;
+    width: 500px;
+    height:300px;
+}
+.chart {
+    shape-rendering: crispEdges;
+}
+
+.mini text {
+    font: 10px sans-serif;	
+}
+
+.main text {
+    font: 12px sans-serif;	
+}
+
+.brush .extent {
+    stroke: gray;
+    fill: dodgerblue;
+    fill-opacity: .365;
+}
+.node {
+    font: 5px sans-serif;
+    fill: rgb(58, 32, 2);
+  }
+  
+.link {
+    stroke: rgb(236, 137, 7);
+    stroke-opacity: 0.3;
+    fill: none;
+    pointer-events: none;
+  }
